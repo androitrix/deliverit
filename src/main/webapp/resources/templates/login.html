@@ -2,22 +2,22 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>#{login.title}</title>
+<title th:value="#{login.title}">TIT</title>
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
 </head>
 <body class="container">
 	<form action="#" th:action="@{/login}" th:object="${login}" method="post">
 		<div class="form-group">
-			<label for="exampleInputEmail1">#{login.email}</label> 
+			<label for="exampleInputEmail1" th:value="#{login.email}">EM</label> 
 			<input type="email" class="form-control" th:field="*{emailAddress}"
 				placeholder="Email" />
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1">#{login.password}</label> 
+			<label for="exampleInputPassword1" th:value="#{login.password}">PW</label> 
 			<input type="password" class="form-control" th:field="*{password}"
 				placeholder="Password" />
 		</div>
-		<button type="submit" class="btn btn-default">#{login.submit}</button>
+		<button type="submit" class="btn btn-default" th:value="#{login.submit}"></button>
 	</form>
 	<script src="resources/js/jquery.min.js" type="text/javascript"></script>
 	<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
