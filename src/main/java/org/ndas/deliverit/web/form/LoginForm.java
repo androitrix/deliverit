@@ -1,4 +1,4 @@
-package org.ndas.deliverit.form;
+package org.ndas.deliverit.web.form;
 
 public class LoginForm {
 

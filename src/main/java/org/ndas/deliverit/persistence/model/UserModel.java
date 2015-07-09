@@ -1,6 +1,6 @@
-package org.ndas.deliverit.model;
+package org.ndas.deliverit.persistence.model;
 
-public class User {
+public class UserModel {
 
 	private String emailAddress;
 	
@@ -8,7 +8,7 @@ public class User {
 	
 	private String lastName;
 	
-	public User(String emailAddress) {
+	public UserModel(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
 

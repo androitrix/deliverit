@@ -1,10 +1,10 @@
-package org.ndas.deliverit.model;
+package org.ndas.deliverit.persistence.model;
 
 import java.util.Date;
 
-public class Job {
+public class JobModel {
 
-	public static final Job DEFAULT_JOB = new Job(
+	public static final JobModel DEFAULT_JOB = new JobModel(
 			"New",
 			"Default", 
 			"Tom Clancy", 
@@ -26,7 +26,7 @@ public class Job {
 	private String fieldDevice;
 	
 	
-	public Job(String status, String type, String customerName,
+	public JobModel(String status, String type, String customerName,
 			Date commitmentStart, Date commitmentEnd, String street,
 			String address2, String city, String fieldDevice) {
 		super();

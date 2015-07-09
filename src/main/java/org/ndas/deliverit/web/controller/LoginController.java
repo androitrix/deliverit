@@ -1,7 +1,7 @@
-package org.ndas.deliverit.controller;
+package org.ndas.deliverit.web.controller;
 
-import org.ndas.deliverit.form.LoginForm;
-import org.ndas.deliverit.model.User;
+import org.ndas.deliverit.persistence.model.UserModel;
+import org.ndas.deliverit.web.form.LoginForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,7 +21,7 @@ public class LoginController {
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	public ModelAndView loginProcess(@ModelAttribute LoginForm login, ModelAndView model) {
 		model.setViewName("home");
-		User user = new User(login.getEmailAddress());
+		UserModel user = new UserModel(login.getEmailAddress());
 		user.setFirstName("Sharuyr");
 		model.addObject("user", user);
 		return model;
