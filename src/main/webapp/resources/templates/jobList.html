@@ -26,6 +26,13 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr th:each="job : ${jobs}">
+				<td th:text="${job.id}">1</td>
+				<td th:text="${job.description}">Default</td>
+				<td th:text="${job.jobType}">Default</td>
+				<td th:text="${job.whenCommitmentStart}">2000/01/01</td>
+				<td th:text="${job.whenCommitmentEnd}">2000/01/01</td>
+			</tr>
 		</tbody>
 	</table>
 </body>

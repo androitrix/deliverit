@@ -26,7 +26,7 @@ public class PersistenceJPAConfig{
    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
       LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
       em.setDataSource(dataSource());
-      em.setPackagesToScan(new String[] { "org.ndas.deliverit.persistence.model" });
+      em.setPackagesToScan(new String[] { "org.ndas.deliverit.data" });
  
       JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
       em.setJpaVendorAdapter(vendorAdapter);

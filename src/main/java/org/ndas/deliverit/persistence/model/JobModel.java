@@ -2,7 +2,9 @@ package org.ndas.deliverit.persistence.model;
 
 import java.util.Date;
 
-public class JobModel {
+import org.ndas.deliverit.data.Job;
+
+public class JobModel extends Job {
 
 	public static final JobModel DEFAULT_JOB = new JobModel(
 			"New",

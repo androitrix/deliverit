@@ -21,3 +21,10 @@ CREATE TABLE user (
   first_name           VARCHAR(50)         NOT NULL,
   PRIMARY KEY(id)
 );
+
+alter table job 
+add column job_type varchar(30), 
+add column when_commitment_start date, 
+add column when_commitment_end date;
+
+alter table user add column last_name varchar(50);
