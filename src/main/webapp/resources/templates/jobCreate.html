@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<title th:text="#{jobCreate.title}">Job Create</title>
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <form action="#">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label for="firstname">Job Type</label>
+                    <input type="text" class="form-control" id="jobType" placeholder="Job Type">
+                </div>
+                <div class="form-group">
+                    <label for="commitmentStart">Commitment Start</label>
+                    <input type="date" class="form-control" id="commitmentStart">
+                </div>
+                <button type="submit" class="btn btn-default">Save</button>
+            </div>
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label for="lastname">Customer Name</label>
+                    <input type="text" class="form-control" id="customerName" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="password">Street</label>
+                    <input type="password" class="form-control" id="street" placeholder="Password">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
