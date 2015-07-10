@@ -1,7 +1,5 @@
 package org.ndas.deliverit.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.ndas.deliverit.data.Job;
@@ -20,10 +18,7 @@ public class JobServiceImpl implements JobService {
 	}
 	
 	public List<Job> getAllJobs() {
-		List<Job> jobs = new ArrayList<Job>();
-		for (Job it : jobRepository.findAll()) {
-			jobs.add(it);
-		}
+		List<Job> jobs = jobRepository.findAll();
 		
 		System.out.println("Returning " + jobs + " with length " + jobs.size());
 		return jobs;
