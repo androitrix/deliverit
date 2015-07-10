@@ -4,19 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="job")
-public class Job {
-
-	@Id
-	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+public class Job extends IdentityEntity {
 	
 	@Column(name = "description")
 	private String description;
@@ -29,20 +21,6 @@ public class Job {
 	
 	@Column(name = "when_commitment_end")
 	private Date whenCommitmentEnd;
-
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * @return the description

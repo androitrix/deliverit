@@ -28,3 +28,9 @@ add column when_commitment_start date,
 add column when_commitment_end date;
 
 alter table user add column last_name varchar(50);
+
+CREATE TABLE customer (
+  id                         BIGINT                            NOT NULL        AUTO_INCREMENT,
+  name          VARCHAR(100)         NOT NULL,
+  PRIMARY KEY(id)
+);

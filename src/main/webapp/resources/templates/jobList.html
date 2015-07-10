@@ -10,6 +10,7 @@
 		Welcome Home
 		<p th:text="${user.firstName}" />
 	</h4>
+	<a href="#" th:href="@{/job/create}" class="btn btn-default" style="float:right;">Create Job</a>
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -30,6 +31,7 @@
 				<td th:text="${job.id}">1</td>
 				<td th:text="${job.description}">Default</td>
 				<td th:text="${job.jobType}">Default</td>
+				<td th:text="${null}">Default</td>
 				<td th:text="${job.whenCommitmentStart}">2000/01/01</td>
 				<td th:text="${job.whenCommitmentEnd}">2000/01/01</td>
 			</tr>

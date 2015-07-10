@@ -6,10 +6,10 @@ import org.ndas.deliverit.data.Job;
 import org.ndas.deliverit.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class JobController {
@@ -24,10 +24,17 @@ public class JobController {
 	}
 	
 	@RequestMapping(value ="jobs", method=RequestMethod.GET)
-	public String jobs(Model m) {
+	public ModelAndView jobs() {
 		System.out.println("Getting jobs");
-		m.addAttribute("userName", "Priktick");
-		return "jobList";
+		ModelAndView m = new ModelAndView();
+		m.addObject("jobs", jobService.getAllJobs());
+		m.setViewName("jobList");
+		return m;
+	}
+	
+	@RequestMapping(value ="job/create", method=RequestMethod.GET)
+	public String create() {
+		return "jobCreate";
 	}
  
 }
