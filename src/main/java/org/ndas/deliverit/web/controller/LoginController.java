@@ -20,7 +20,7 @@ public class LoginController {
 	
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	public ModelAndView loginProcess(@ModelAttribute LoginForm login, ModelAndView model) {
-		model.setViewName("home");
+		model.setViewName("jobList");
 		UserModel user = new UserModel(login.getEmailAddress());
 		user.setFirstName("Sharuyr");
 		model.addObject("user", user);
