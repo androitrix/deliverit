@@ -27,7 +27,8 @@ public class JobModel extends Job {
 	private String city;
 	private String fieldDevice;
 	
-	
+	public JobModel() {}
+		
 	public JobModel(String status, String type, String customerName,
 			Date commitmentStart, Date commitmentEnd, String street,
 			String address2, String city, String fieldDevice) {

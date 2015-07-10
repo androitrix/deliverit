@@ -1,11 +1,16 @@
 package org.ndas.deliverit.web.controller;
 
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.ndas.deliverit.data.Job;
 import org.ndas.deliverit.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,10 +22,11 @@ public class JobController {
 	@Autowired
 	private JobService jobService;
 	
-	@ModelAttribute("jobs")
-	public List<Job> allJobs() {
-		System.out.println("Getting all jobs");
-		return jobService.getAllJobs();
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+	    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+	    sdf.setLenient(true);
+	    binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
 	}
 	
 	@RequestMapping(value ="jobs", method=RequestMethod.GET)
@@ -32,9 +38,18 @@ public class JobController {
 		return m;
 	}
 	
-	@RequestMapping(value ="job/create", method=RequestMethod.GET)
-	public String create() {
+	@RequestMapping(value ="job/view", method=RequestMethod.GET)
+	public String create(Model m) {
+		m.addAttribute("job", new Job());
 		return "jobCreate";
+	}
+	
+	@RequestMapping(value ="job/create", method=RequestMethod.POST)
+	public ModelAndView processCreate(@ModelAttribute Job job, ModelAndView m) {
+		jobService.createJob(job);
+		m.addObject("jobs", jobService.getAllJobs());
+		m.setViewName("jobList");
+		return m;
 	}
  
 }

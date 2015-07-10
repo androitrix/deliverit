@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="job")
@@ -16,9 +18,11 @@ public class Job extends IdentityEntity {
 	@Column(name = "job_type")
 	private String jobType;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "when_commitment_start")
 	private Date whenCommitmentStart;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "when_commitment_end")
 	private Date whenCommitmentEnd;
 

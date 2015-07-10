@@ -26,7 +26,6 @@ alter table job
 add column job_type varchar(30), 
 add column when_commitment_start date, 
 add column when_commitment_end date;
-
 alter table user add column last_name varchar(50);
 
 CREATE TABLE customer (
@@ -34,3 +33,4 @@ CREATE TABLE customer (
   name          VARCHAR(100)         NOT NULL,
   PRIMARY KEY(id)
 );
+
