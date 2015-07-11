@@ -3,7 +3,7 @@ package org.ndas.deliverit.web.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.ndas.deliverit.data.Job;
+import org.ndas.deliverit.persistence.Job;
 import org.ndas.deliverit.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;

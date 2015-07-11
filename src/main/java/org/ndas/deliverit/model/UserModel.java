@@ -1,4 +1,4 @@
-package org.ndas.deliverit.persistence.model;
+package org.ndas.deliverit.model;
 
 public class UserModel {
 

@@ -34,3 +34,20 @@ CREATE TABLE customer (
   PRIMARY KEY(id)
 );
 
+CREATE TABLE location (
+  id                         BIGINT                            NOT NULL        AUTO_INCREMENT,
+  name                       VARCHAR(50),
+  description                VARCHAR(50),
+  street_number1             VARCHAR(10),
+  street_number2             VARCHAR(10),
+  street_name                VARCHAR(50),
+  street_suffix              VARCHAR(20),
+  address2                   VARCHAR(100),     
+  address3                   VARCHAR(100),
+  city                       VARCHAR(50)
+  state                      VARCHAR(20),
+  post_code                  VARCHAR(20),
+  country                    VARCHAR(50),
+  PRIMARY KEY(id)
+  PRIMARY KEY(id)
+);

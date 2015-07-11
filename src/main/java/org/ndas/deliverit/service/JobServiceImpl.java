@@ -2,7 +2,7 @@ package org.ndas.deliverit.service;
 
 import java.util.List;
 
-import org.ndas.deliverit.data.Job;
+import org.ndas.deliverit.persistence.Job;
 import org.ndas.deliverit.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

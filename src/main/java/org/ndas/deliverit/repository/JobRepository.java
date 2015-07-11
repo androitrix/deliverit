@@ -1,6 +1,6 @@
 package org.ndas.deliverit.repository;
 
-import org.ndas.deliverit.data.Job;
+import org.ndas.deliverit.persistence.Job;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

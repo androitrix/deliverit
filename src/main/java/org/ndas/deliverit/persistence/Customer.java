@@ -1,7 +1,9 @@
-package org.ndas.deliverit.data;
+package org.ndas.deliverit.persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +13,9 @@ public class Customer extends IdentityEntity {
 	@Column(name="name")
 	private String name;
 
+	@OneToOne
+	@JoinColumn(name = "location")
+	private Location location;
 	/**
 	 * @return the name
 	 */
@@ -23,6 +28,20 @@ public class Customer extends IdentityEntity {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the location
+	 */
+	public Location getLocation() {
+		return location;
+	}
+
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 }

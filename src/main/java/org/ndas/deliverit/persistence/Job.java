@@ -1,9 +1,11 @@
-package org.ndas.deliverit.data;
+package org.ndas.deliverit.persistence;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,6 +28,13 @@ public class Job extends IdentityEntity {
 	@Column(name = "when_commitment_end")
 	private Date whenCommitmentEnd;
 
+	@ManyToOne
+	@JoinColumn(name = "customer")
+	private Customer customer;
+	
+	@ManyToOne
+	@JoinColumn(name = "company")
+	private Company company;
 	/**
 	 * @return the description
 	 */
@@ -80,6 +89,20 @@ public class Job extends IdentityEntity {
 	 */
 	public void setWhenCommitmentEnd(Date commitmentEnd) {
 		this.whenCommitmentEnd = commitmentEnd;
+	}
+
+	/**
+	 * @return the customer
+	 */
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	/**
+	 * @param customer the customer to set
+	 */
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	
 }

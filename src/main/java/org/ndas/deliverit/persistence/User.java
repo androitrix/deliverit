@@ -1,4 +1,4 @@
-package org.ndas.deliverit.data;
+package org.ndas.deliverit.persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,8 +1,8 @@
-package org.ndas.deliverit.persistence.model;
+package org.ndas.deliverit.model;
 
 import java.util.Date;
 
-import org.ndas.deliverit.data.Job;
+import org.ndas.deliverit.persistence.Job;
 
 public class JobModel extends Job {
 

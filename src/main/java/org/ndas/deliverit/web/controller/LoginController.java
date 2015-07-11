@@ -1,6 +1,8 @@
 package org.ndas.deliverit.web.controller;
 
-import org.ndas.deliverit.persistence.model.UserModel;
+import javax.servlet.http.HttpSession;
+
+import org.ndas.deliverit.model.UserModel;
 import org.ndas.deliverit.web.form.LoginForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 	
+	private UserS
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String login(Model model) {
 		model.addAttribute("login", new LoginForm());
@@ -19,7 +22,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="login", method=RequestMethod.POST)
-	public ModelAndView loginProcess(@ModelAttribute LoginForm login, ModelAndView model) {
+	public ModelAndView loginProcess(@ModelAttribute LoginForm login, ModelAndView model, HttpSession session) {
 		model.setViewName("jobList");
 		UserModel user = new UserModel(login.getEmailAddress());
 		user.setFirstName("Sharuyr");
