@@ -1,11 +1,10 @@
 package org.ndas.deliverit.persistence;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Persistent;
-
-@Persistent
+@Entity
 @Table(name = "location")
 public class Location extends IdentityEntity {
 	

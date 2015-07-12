@@ -1,5 +1,7 @@
 package org.ndas.deliverit.web.controller;
 
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpSession;
 
 import org.ndas.deliverit.model.UserModel;
@@ -14,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 	
-	private UserS
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String login(Model model) {
 		model.addAttribute("login", new LoginForm());
@@ -22,11 +23,22 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="login", method=RequestMethod.POST)
-	public ModelAndView loginProcess(@ModelAttribute LoginForm login, ModelAndView model, HttpSession session) {
+	public String loginProcess(@ModelAttribute LoginForm login, ModelAndView model, HttpSession session) {
 		model.setViewName("jobList");
 		UserModel user = new UserModel(login.getEmailAddress());
 		user.setFirstName("Sharuyr");
 		model.addObject("user", user);
-		return model;
+		return "redirect:jobList";
+	}
+	
+	@RequestMapping(value="logout", method=RequestMethod.POST)
+	public String logout(HttpSession s) {
+		Enumeration<String> attrNames = s.getAttributeNames();
+		for (;attrNames.hasMoreElements();) {
+			String attrName = attrNames.nextElement();
+			s.removeAttribute(attrName);
+		}
+		s.invalidate();
+		return "redirect:login";
 	}
 }

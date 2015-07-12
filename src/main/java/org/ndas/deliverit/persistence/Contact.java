@@ -34,6 +34,7 @@ public class Contact extends IdentityEntity {
 	@Column(name = "fax_number")
 	private String faxNumber;
 
+	@Column(name = "contact_type")
 	@Enumerated(EnumType.STRING)
 	private ContactType contactType;
 	/**

@@ -44,10 +44,46 @@ CREATE TABLE location (
   street_suffix              VARCHAR(20),
   address2                   VARCHAR(100),     
   address3                   VARCHAR(100),
-  city                       VARCHAR(50)
+  city                       VARCHAR(50),
   state                      VARCHAR(20),
   post_code                  VARCHAR(20),
   country                    VARCHAR(50),
   PRIMARY KEY(id)
+);
+
+CREATE TABLE contact (
+  id                         BIGINT                            NOT NULL        AUTO_INCREMENT,
+  first_name                 VARCHAR(50),
+  last_name                  VARCHAR(50),
+  home_number                VARCHAR(20),
+  work_number                VARCHAR(20),
+  mobile_number              VARCHAR(20),
+  email_address              VARCHAR(100),
+  website                    VARCHAR(100),
+  fax_number                 VARCHAR(20),
+  contact_type               VARCHAR(10),
   PRIMARY KEY(id)
 );
+
+CREATE TABLE company (
+  id                         BIGINT                            NOT NULL        AUTO_INCREMENT,
+  name                       VARCHAR(50),
+  description                VARCHAR(100),
+  PRIMARY KEY(id)
+);
+
+ALTER TABLE job ADD company BIGINT;
+ALTER TABLE job ADD CONSTRAINT fk_job_company 
+FOREIGN KEY IND_JOB_COMPANY (company) 
+REFERENCES company(id);
+
+ALTER TABLE job ADD customer BIGINT;
+ALTER TABLE job ADD CONSTRAINT fk_job_customer
+FOREIGN KEY IND_JOB_CUSTOMER (customer)
+REFERENCES customer(id);
+
+
+ALTER TABLE customer ADD location BIGINT;
+ALTER TABLE customer ADD CONSTRAINT fk_customer_location
+FOREIGN KEY IND_CUST_LOC (location)
+REFERENCES location(id);
