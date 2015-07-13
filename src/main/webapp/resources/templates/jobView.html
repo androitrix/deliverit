@@ -28,23 +28,43 @@
 						<input type="text" class="form-control" id="description" placeholder="Description" th:field="*{description}"/>
 					</div>
 					<div class="form-group">
-						<label for="commitmentStart">Commitment Start</label> 
-						<input type="date" class="form-control" id="commitmentStart" th:pattern="dd/MM/yyyy" th:field="*{commitmentStart}"/>
+						<label for="whenCommitmentStart">Commitment Start</label> 
+						<input type="date" class="form-control" id="whenCommitmentStart" th:field="*{whenCommitmentStart}"/>
 					</div>
 					<div class="form-group">
-						<label for="commitmentEnd">Commitment End</label> 
-						<input type="date" class="form-control" id="commitmentEnd" th:pattern="dd/MM/yyyy" th:field="*{commitmentEnd}"/>
+						<label for="whenCommitmentEnd">Commitment End</label> 
+						<input type="date" class="form-control" id="whenCommitmentEnd" th:field="*{whenCommitmentEnd}"/>
 					</div>
 					<button type="submit" class="btn btn-default">Save</button>
 				</div>
 				<div class="col-xs-6">
 					<div class="form-group">
 						<label for="lastname">Customer Name</label>
-						<input type="text" class="form-control" id="customerName" placeholder="Last Name" />
+						<input type="text" class="form-control" id="customer.name" placeholder="Customer Name" />
 					</div>
 					<div class="form-group">
 						<label for="street">Street</label>
-						<input type="text" class="form-control" id="street" placeholder="Password" />
+						<input type="text" class="form-control" id="street" placeholder="Street" />
+					</div>
+					
+					<div class="form-group">
+						<label for="street">Address 2</label>
+						<input type="text" class="form-control" id="street" placeholder="Street" />
+					</div>
+					
+					<div class="form-group">
+						<label for="street">City</label>
+						<input type="text" class="form-control" id="street" placeholder="Street" />
+					</div>
+					
+					<div class="form-group">
+						<label for="street">Region</label>
+						<input type="text" class="form-control" id="street" placeholder="Street" />
+					</div>
+					
+					<div class="form-group">
+						<label for="street">Country</label>
+						<input type="text" class="form-control" id="street" placeholder="Street" />
 					</div>
 				</div>
 			</form>

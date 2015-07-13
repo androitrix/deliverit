@@ -22,11 +22,12 @@ CREATE TABLE user (
   PRIMARY KEY(id)
 );
 
-alter table job 
-add column job_type varchar(30), 
-add column when_commitment_start date, 
-add column when_commitment_end date;
-alter table user add column last_name varchar(50);
+ALTER TABLE job 
+ADD COLUMN job_type VARCHAR(30), 
+ADD COLUMN when_commitment_start DATETIME, 
+ADD COLUMN when_commitment_end DATETIME;
+
+ALTER TABLE USER ADD COLUMN last_name VARCHAR(50);
 
 CREATE TABLE customer (
   id                         BIGINT                            NOT NULL        AUTO_INCREMENT,
@@ -87,3 +88,12 @@ ALTER TABLE customer ADD location BIGINT;
 ALTER TABLE customer ADD CONSTRAINT fk_customer_location
 FOREIGN KEY IND_CUST_LOC (location)
 REFERENCES location(id);
+
+
+CREATE TABLE job_note (
+  id                         BIGINT                            NOT NULL        AUTO_INCREMENT,
+  when_created               DATETIME,
+  created_by                 BIGINT,
+  text                       LONGTEXT,
+  PRIMARY KEY(id)
+);

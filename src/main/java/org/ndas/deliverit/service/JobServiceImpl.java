@@ -29,4 +29,8 @@ public class JobServiceImpl implements JobService {
 		
 	}
 
+	public Job getJob(Long id) {
+		return this.jobRepository.findOne(id);
+	}
+
 }

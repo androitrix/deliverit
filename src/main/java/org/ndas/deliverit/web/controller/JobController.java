@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,10 +39,19 @@ public class JobController {
 		return m;
 	}
 	
-	@RequestMapping(value ="job/view", method=RequestMethod.GET)
+	@RequestMapping(value = "job/{id}", method=RequestMethod.GET)
+	public ModelAndView job(@PathVariable("id") Long id, ModelAndView mv) {
+		Job j = jobService.getJob(id);
+		mv.addObject("job", j);
+		mv.setViewName("jobView");
+		return mv;
+		
+	}
+	
+	@RequestMapping(value ="job/new", method=RequestMethod.GET)
 	public String create(Model m) {
 		m.addAttribute("job", new Job());
-		return "jobCreate";
+		return "jobView";
 	}
 	
 	@RequestMapping(value ="job/create", method=RequestMethod.POST)

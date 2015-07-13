@@ -9,13 +9,14 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#"> <img alt="Brand" src="/resources/images/logo-sm.png"></img>
+				<a class="navbar-brand" href="#" th:href="@{/jobs}"><img alt="Brand" src="/resources/images/logo-sm.png"></img>
 				</a>
+				<a class="btn btn-default" href="#" th:href="@{/logout}">Logout</a>
 			</div>
 		</div>
 	</nav>
-	<a href="#" th:href="@{/job/create}" class="btn btn-default"
-		style="float: right;">Create Job</a>
+	<a href="#" th:href="@{/job/new}" class="btn btn-default"
+		style="float: right;">New Job</a>
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -33,7 +34,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="job : ${jobs}">
-				<td th:text="${job.id}">1</td>
+				<td><a th:text="${job.id}" href="#" th:href="|/job/${job.id}|">id</a></td>
 				<td th:text="${job.description}">Default</td>
 				<td th:text="${job.jobType}">Default</td>
 				<td th:text="${null}">Default</td>

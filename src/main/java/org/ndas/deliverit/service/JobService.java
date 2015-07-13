@@ -9,4 +9,6 @@ public interface JobService {
 	public List<Job> getAllJobs();
 	
 	public Job createJob(Job j);
+	
+	public Job getJob(Long id);
 }

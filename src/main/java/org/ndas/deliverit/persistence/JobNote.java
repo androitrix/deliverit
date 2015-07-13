@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,7 +16,8 @@ public class JobNote extends IdentityEntity {
 	@Column(name = "when_created")
 	private Date whenCreated;
 	
-	@Column(name = "text")
+	@Lob
+	@Column(name = "text", length=65525)
 	private String text;
 	
 	@OneToOne

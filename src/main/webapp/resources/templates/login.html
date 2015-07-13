@@ -2,25 +2,70 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title th:value="#{login.title}">TIT</title>
+<title th:value="#{login.title}">Title</title>
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css" />
 </head>
-<body class="container">
-	<form action="#" th:action="@{/login}" th:object="${login}"
-		method="post">
-		<div class="form-group">
-			<label for="exampleInputEmail1" th:value="#{login.email}">EM</label>
-			<input type="email" class="form-control" th:field="*{emailAddress}"
-				placeholder="Email" />
+<body>
+	<div class="container">
+		<div id="loginbox" style="margin-top: 50px;"
+			class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">Sign In</div>
+					<div
+						style="float: right; font-size: 80%; position: relative; top: -10px">
+						<a href="#">Forgot password?</a>
+					</div>
+				</div>
+
+				<div style="padding-top: 30px" class="panel-body">
+
+					<div style="display: none" id="login-alert"
+						class="alert alert-danger col-sm-12"></div>
+
+					<form id="loginform" class="form-horizontal" role="form"
+						th:action="@{/login}" th:object="${login}" method="post">
+
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input id="login-username"
+								type="text" class="form-control" th:field="*{emailAddress}"
+								value="" placeholder="username or email" />
+						</div>
+
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"> <i
+								class="glyphicon glyphicon-lock"></i></span> <input id="login-password"
+								th:field="*{password}" type="password" class="form-control"
+								placeholder="password" />
+						</div>
+
+
+
+						<div class="input-group">
+							<div class="checkbox">
+								<label> <input id="login-remember" type="checkbox"
+									name="remember" value="1" /> Remember me
+								</label>
+							</div>
+						</div>
+
+
+						<div style="margin-top: 10px" class="form-group">
+							<!-- Button -->
+
+							<div class="col-sm-12 controls">
+								<button type="submit" id="btn-login" class="btn btn-success">Login</button>
+							</div>
+						</div>
+					</form>
+
+
+
+				</div>
+			</div>
 		</div>
-		<div class="form-group">
-			<label for="exampleInputPassword1" th:value="#{login.password}">PW</label>
-			<input type="password" class="form-control" th:field="*{password}"
-				placeholder="Password" />
-		</div>
-		<button type="submit" class="btn btn-default"
-			th:value="#{login.submit}">Sb</button>
-	</form>
+	</div>
 
 	<script src="resources/js/jquery.min.js" type="text/javascript"></script>
 	<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
