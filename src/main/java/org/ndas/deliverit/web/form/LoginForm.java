@@ -2,22 +2,22 @@ package org.ndas.deliverit.web.form;
 
 public class LoginForm {
 
-	private String emailAddress;
+	private String username;
 	
 	private String password;
 
 	/**
 	 * @return the emailAddress
 	 */
-	public String getEmailAddress() {
-		return emailAddress;
+	public String getUsername() {
+		return username;
 	}
 
 	/**
 	 * @param emailAddress the emailAddress to set
 	 */
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	/**
