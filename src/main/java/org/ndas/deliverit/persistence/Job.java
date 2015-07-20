@@ -1,11 +1,13 @@
 package org.ndas.deliverit.persistence;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +33,9 @@ public class Job extends IdentityEntity {
 	@ManyToOne
 	@JoinColumn(name = "company")
 	private Company company;
+	
+	@OneToMany
+	private Set<JobNote> notes;
 	/**
 	 * @return the description
 	 */
@@ -99,6 +104,20 @@ public class Job extends IdentityEntity {
 	 */
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	/**
+	 * @return the notes
+	 */
+	public Set<JobNote> getNotes() {
+		return notes;
+	}
+
+	/**
+	 * @param notes the notes to set
+	 */
+	public void setNotes(Set<JobNote> notes) {
+		this.notes = notes;
 	}
 	
 }

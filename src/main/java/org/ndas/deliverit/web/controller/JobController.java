@@ -43,7 +43,7 @@ public class JobController {
 	public ModelAndView job(@PathVariable("id") Long id, ModelAndView mv) {
 		Job j = jobService.getJob(id);
 		mv.addObject("job", j);
-		mv.setViewName("jobView");
+		mv.setViewName("job");
 		return mv;
 		
 	}
@@ -51,7 +51,7 @@ public class JobController {
 	@RequestMapping(value ="job/new", method=RequestMethod.GET)
 	public String create(Model m) {
 		m.addAttribute("job", new Job());
-		return "jobView";
+		return "job";
 	}
 	
 	@RequestMapping(value ="job/create", method=RequestMethod.POST)
