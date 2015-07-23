@@ -5,6 +5,45 @@
 <title th:text="#{customer.list.title}">Customer List</title>
 </head>
 <body>
-
+	<header></header>
+	<div id="mainBody">
+		<div id="customerHeader"></div>
+		<div id="customerBody">
+			<table id="customerList" class="table">
+				<thead>
+					<tr>
+						<td><a href="#">ID</a></td>
+						<td><a href="#">Name</a></td>
+						<td><a href="#">Address</a></td>
+						<td><a href="#">Phone</a></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="customer : ${customers}">
+						<td><a th:text="${customer.id}" href="#"
+							th:href="|/customer/${customer.id}|">id</a></td>
+						<td th:text="${customer.name}">Default</td>
+						<td th:text="${customer.address}">Default</td>
+						<td>
+							<ul>
+								<li th:each="phoneNumber: ${customer.phoneNumbers}"><span
+									th:text="${phoneNumber}"></span></li>
+							</ul>
+						</td>
+						<td><a href="#">Phone</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
+
+<tr th:each="job : ${jobs}">
+	<td><a th:text="${job.id}" href="#" th:href="|/job/${job.id}|">id</a></td>
+	<td th:text="${job.description}">Default</td>
+	<td th:text="${job.jobType}">Default</td>
+	<td th:text="${null}">Default</td>
+	<td th:text="${job.whenCommitmentStart}">2000/01/01</td>
+	<td th:text="${job.whenCommitmentEnd}">2000/01/01</td>
+</tr>

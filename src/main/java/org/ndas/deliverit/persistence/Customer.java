@@ -1,8 +1,11 @@
 package org.ndas.deliverit.persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -13,6 +16,9 @@ public class Customer extends IdentityEntity {
 	@Column(name="name")
 	private String name;
 
+	@OneToMany(mappedBy="customer")
+	private List<Contact> contacts;
+	
 	@OneToOne
 	@JoinColumn(name = "location")
 	private Location location;

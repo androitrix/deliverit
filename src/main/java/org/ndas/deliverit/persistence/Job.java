@@ -34,7 +34,7 @@ public class Job extends IdentityEntity {
 	@JoinColumn(name = "company")
 	private Company company;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "job")
 	private Set<JobNote> notes;
 	/**
 	 * @return the description

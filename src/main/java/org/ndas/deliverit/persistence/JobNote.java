@@ -6,12 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "job_note")
 public class JobNote extends IdentityEntity {
+	
+	@Column(name = "job")
+	@ManyToOne
+	private Job job;
 	
 	@Column(name = "when_created")
 	private Date whenCreated;
@@ -23,6 +28,20 @@ public class JobNote extends IdentityEntity {
 	@OneToOne
 	@JoinColumn(name = "created_by")
 	private User createdBy;
+
+	/**
+	 * @return the job
+	 */
+	public Job getJob() {
+		return job;
+	}
+
+	/**
+	 * @param job the job to set
+	 */
+	public void setJob(Job job) {
+		this.job = job;
+	}
 
 	public Date getWhenCreated() {
 		return whenCreated;

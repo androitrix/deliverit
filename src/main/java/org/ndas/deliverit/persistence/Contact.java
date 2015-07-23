@@ -4,12 +4,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "contact")
 public class Contact extends IdentityEntity {
 
+	@Column(name = "customer")
+	@OneToMany
+	private Customer customer;
+	
 	@Column(name = "first_name")
 	private String firstName;
 	
